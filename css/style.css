@@ -4,51 +4,178 @@
     box-sizing: border-box;
 }
 
-h1{
-    font-size: 64px;
-    font-weight: bold;
+header {
     text-align: center;
-    letter-spacing: 5px;
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin: 50px;
 }
 
-p{
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 25px;
-    letter-spacing: 5px;
+/*stylowanie liczby ruchów*/
 
-}
-.board {
-    width: 500px;
-    /*height: 500px;*/
-    margin: 0 auto;
-    text-align: center;
-    border: 2px solid darkblue;
+.gameMovesBox {
+    width: 100%;
+    margin: 10px auto;
 }
 
-.square {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    border-radius: 10px;
-    display: inline-block;
-    margin: 2px;
-    background-color: darkred;
-    cursor: pointer;
-    filter: brightness(60%);
-    transition: all .3s ease-in-out;
-}
-
-.square:hover{
-    filter: brightness(100%);
-}
-
-.score {
-    margin-top: 5px;
-    letter-spacing: 2px;
-    font-style: italic;
+.gameMovesBox strong {
     font-size: 20px;
     font-weight: bold;
+    color: black;
+    text-align: center;
+    display: block;
+}
+
+.gameMovesBox .gameMoves {
+    border: 1px solid black;
+    height: 30px;
+    max-width: 300px;
+    font-size: 20px;
+    font-weight: bold;
+    color: darkcyan;
+    background-color: gray;
+    text-align: center;
+    margin: 10px auto;
+}
+
+/*plansza*/
+
+.gameBoard {
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/*komórka na planszy*/
+
+.gameBoard .cell {
+    width: 18%;
+    margin: 2px;
+    height: 18%;
+    vertical-align: top;
+    display: inline-block;   /* układanie planszy w kwadrat */
+    position: relative;
+}
+
+/*kafelek*/
+
+.gameBoard .tile {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+/*wspólne dla frontu i reversu*/
+
+.gameBoard .tile span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gameBoard .tile .front {
+    border: 1px solid black;
+    z-index: 3;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+.gameBoard .tile .reverse {
+    border: 1px solid black;
+    background: grey;
+    z-index: 2;
+    display: block;
+    -webkit-transition: 0.2s 0.2s;
+    -moz-transition: 0.2s 0.2s;
+    -ms-transition: 0.2s 0.2s;
+    -o-transition: 0.2s 0.2s;
+    transition: 0.2s 0.2s;
+    -webkit-transform:scaleX(1);
+    -moz-transform:scaleX(1);
+    transform:scaleX(1);
+}
+
+.gameBoard .tile:hover .reverse {
+    background-color: lightgray;
+}
+
+/*klasa show*/
+
+.gameBoard .tile.show .front {
+    -webkit-transition: 0.2s 0.2s;
+    -moz-transition: 0.2s 0.2s;
+    -ms-transition: 0.2s 0.2s;
+    -o-transition: 0.2s 0.2s;
+    transition: 0.2s 0.2s;
+    -webkit-transform:scaleX(1);
+    -moz-transform:scaleX(1);
+    transform:scaleX(1);
+
+}
+
+.gameBoard .tile.show .reverse {
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    -webkit-transform:scaleX(0);
+    -moz-transform:scaleX(0);
+    transform:scaleX(0);
+}
+
+/*  wygląd danego typu kafelka */
+
+.gameBoard .cardType0 .front {
+    background: url("../images/0.png") center no-repeat;
+}
+
+.gameBoard .cardType1 .front {
+    background: url("../images/1.png") center no-repeat;
+}
+
+.gameBoard .cardType2 .front {
+    background: url("../images/2.png") center no-repeat;
+}
+
+.gameBoard .cardType3 .front {
+    background: url("../images/3.png") center no-repeat;
+}
+
+.gameBoard .cardType4 .front {
+    background: url("../images/4.png") center no-repeat;
+}
+
+.gameBoard .cardType5 .front {
+    background: url("../images/5.png") center no-repeat;
+}
+
+.gameBoard .cardType6 .front {
+    background: url("../images/6.png") center no-repeat;
+}
+
+.gameBoard .cardType7 .front {
+    background: url("../images/7.png") center no-repeat;
+}
+
+.gameBoard .cardType8 .front {
+    background: url("../images/8.png") center no-repeat;
+}
+
+.gameBoard .cardType9 .front {
+    background: url("../images/9.png") center no-repeat;
 }
