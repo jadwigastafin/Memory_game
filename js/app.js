@@ -2,8 +2,8 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
     console.log('DOM');
 
     let tilesCount = 20; //ilość kafelków na planszy
-    let tiles = []; //tablica z wygenerowanymi numerkami kafelków
-    let clickedTiles = []; //kliknięte kafelki max 2 szt.
+    // let tiles = []; //tablica z wygenerowanymi numerkami kafelków
+    // let clickedTiles = []; //kliknięte kafelki max 2 szt.
     let canGet = true; //zabezpieczenie przed kliknięciem wiecej niż 2 kafelków
     let movesCount = 0; //liczba ruchów gracza
     let tilesPair = 0; //sparowane kafelki max = tilesCount/2
@@ -14,7 +14,7 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
          let clickedTiles = [];
          // let canGet = true;
          // // let movesCount = 0;
-         // // let tilesPair = 0;
+
 
          let gameBoard = $(".gameBoard").empty(); //czyszczenie planszy
 
@@ -59,8 +59,6 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
 
          function tileClicked(element) {
 
-             let canGet = true;
-             let movesCount = 0;
 
 
              element = $(element);
@@ -76,6 +74,7 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
                      clickedTiles.push(element);
                      console.log(clickedTiles);         //index klikniętego kafelka dodajemy do tablicy
                      element.parent().addClass("show"); //kafelkowi dajemy klasę "show
+
                     if (clickedTiles.length >= 2) {  //clickedTiles zawiera numery aktualnie klkiniętych kafelków
                         canGet = false; //dwa kafelki kliknięte - nie można kliknąć następnych
                         console.log(clickedTiles[0].parent().data('cardType'));
@@ -104,7 +103,7 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
 
          function deleteTiles() {  //deleteTiles jeśli typ kafelków jest taki sam
 
-             let tilesPair = 0;
+
 
              clickedTiles[0].parent().fadeOut(function () { //rozjaśnienie do transparent
                  $(this).remove();
