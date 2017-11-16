@@ -82,6 +82,7 @@ header {
 .gameBoard .tile .front {
     border: 1px solid black;
     z-index: 3;
+    background: yellow;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
