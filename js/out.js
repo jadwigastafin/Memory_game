@@ -89,7 +89,7 @@ $(function () {
         // // let movesCount = 0;
 
 
-        var gameBoard = $(".gameBoard").empty(); //czyszczenie planszy
+        var gameBoard = $(".gameBoard"); //czyszczenie planszy
 
         //tablica z numerami kafelków
         for (var _i = 0; _i < tilesCount; _i++) {
@@ -136,7 +136,6 @@ $(function () {
             if (canGet) {
                 //canGet = true
 
-
                 console.log(clickedTiles);
 
                 if (!clickedTiles.length || element.parent().data('index') != clickedTiles[0].parent().data('index')) {
@@ -155,11 +154,11 @@ $(function () {
                             //sprawdzamy czy typ obu kafelków jest taki sam
                             setTimeout(function () {
                                 deleteTiles(); //jeśli typ kafelków jest taki sam to usuwamy je
-                            }, 500);
+                            }, 700);
                         } else {
                             setTimeout(function () {
                                 resetTiles(); //jeśli typ kafelków jest różny to ukrywamy je
-                            }, 500);
+                            }, 700);
                         }
 
                         movesCount++; //zwiększenie licznika
@@ -182,14 +181,15 @@ $(function () {
                 $(this).remove();
             });
 
+            clickedTiles = [];
+
             tilesPair++; //zwiększenie licznika odgadniętych par
             if (tilesPair >= tilesCount / 2) {
                 gameOver(); //jeśli licznik par osiągnął liczbę kafelków/2 to koniec gry
             }
 
-            // clickedTiles = new Array();
             canGet = true;
-            clickedTiles = [];
+            // clickedTiles=[];
         }
 
         function gameOver() {
@@ -203,7 +203,6 @@ $(function () {
                 clickedTiles[0].parent().removeClass('show'); //ukrywanie kafelków przez usunięcie klasy show
                 clickedTiles[1].parent().removeClass('show');
 
-                // clickedTiles = new Array(); //wyczyszczenie tablicy z aktualnie kliknietymi kafelkami
                 canGet = true; //wyłączenie możliwości klikania
                 clickedTiles = [];
             }

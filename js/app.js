@@ -16,7 +16,7 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
          // // let movesCount = 0;
 
 
-         let gameBoard = $(".gameBoard").empty(); //czyszczenie planszy
+         let gameBoard = $(".gameBoard"); //czyszczenie planszy
 
          //tablica z numerami kafelków
          for (let i = 0; i < tilesCount; i++) {
@@ -59,14 +59,10 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
 
          function tileClicked(element) {
 
-
-
              element = $(element);
              console.log(canGet);
 
              if (canGet) {  //canGet = true
-
-
 
                  console.log(clickedTiles);
 
@@ -83,12 +79,12 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
                         if (clickedTiles[0].parent().data('cardType') === clickedTiles[1].parent().data('cardType')) { //sprawdzamy czy typ obu kafelków jest taki sam
                             setTimeout(function () {
                                 deleteTiles() //jeśli typ kafelków jest taki sam to usuwamy je
-                            }, 500);
+                            }, 700);
 
                         } else {
                             setTimeout(function () {
                                 resetTiles() //jeśli typ kafelków jest różny to ukrywamy je
-                            }, 500);
+                            }, 700);
                         }
 
 
@@ -113,14 +109,16 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
                  $(this).remove();
              });
 
+             clickedTiles=[];
+
              tilesPair++;  //zwiększenie licznika odgadniętych par
              if (tilesPair >= tilesCount / 2) {
                  gameOver();  //jeśli licznik par osiągnął liczbę kafelków/2 to koniec gry
              }
 
-             // clickedTiles = new Array();
+
              canGet = true;
-             clickedTiles=[];
+             // clickedTiles=[];
 
          }
 
@@ -133,12 +131,10 @@ $(function() { //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostęp
              console.log(clickedTiles);
              if (clickedTiles[0] && clickedTiles[1]) {
 
-
                  clickedTiles[0].parent().removeClass('show'); //ukrywanie kafelków przez usunięcie klasy show
                  clickedTiles[1].parent().removeClass('show');
 
 
-                 // clickedTiles = new Array(); //wyczyszczenie tablicy z aktualnie kliknietymi kafelkami
                  canGet = true; //wyłączenie możliwości klikania
                  clickedTiles = [];
              }
