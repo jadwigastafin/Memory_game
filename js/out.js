@@ -73,7 +73,7 @@
 $(function () {
     console.log('DOM');
 
-    var tilesCount = 10; //ilość kafelków na planszy
+    var tilesCount = 20; //ilość kafelków na planszy
     var canGet = true; //zabezpieczenie przed kliknięciem wiecej niż 2 kafelków
     var movesCount = 0; //liczba ruchów gracza
     var tilesPair = 0; //sparowane kafelki max = tilesCount/2
@@ -170,11 +170,11 @@ $(function () {
                             //sprawdzamy czy typ obu kafelków jest taki sam
                             setTimeout(function () {
                                 deleteTiles(); //jeśli typ kafelków jest taki sam to usuwamy je
-                            }, 600);
+                            }, 500);
                         } else {
                             setTimeout(function () {
                                 resetTiles(); //jeśli typ kafelków jest różny to ukrywamy je
-                            }, 1000);
+                            }, 700);
                         }
 
                         movesCount++; //zwiększenie licznika
@@ -215,7 +215,6 @@ $(function () {
                 localStorage.setItem("score", JSON.stringify({ moves: movesCount, time: timeCount }));
                 console.log('saved');
             }
-            // alert("You win!");
         }
 
         function resetTiles() {

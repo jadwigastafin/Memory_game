@@ -1,7 +1,7 @@
 $(function() {
     console.log('DOM');
 
-    let tilesCount = 10; //ilość kafelków na planszy
+    let tilesCount = 20; //ilość kafelków na planszy
     let canGet = true; //zabezpieczenie przed kliknięciem wiecej niż 2 kafelków
     let movesCount = 0; //liczba ruchów gracza
     let tilesPair = 0; //sparowane kafelki max = tilesCount/2
@@ -99,7 +99,6 @@ $(function() {
                      element.parent().addClass("show"); //kafelkowi dajemy klasę "show"
 
 
-
                      if (clickedTiles.length >= 2) {  //clickedTiles zawiera numery aktualnie klkiniętych kafelków
                          canGet = false; //dwa kafelki kliknięte - nie można kliknąć następnych
 
@@ -107,13 +106,13 @@ $(function() {
                              setTimeout(function () {
                                  deleteTiles() //jeśli typ kafelków jest taki sam to usuwamy je
 
-                             }, 600);
+                             }, 500);
 
                          } else {
                              setTimeout(function () {
                                  resetTiles() //jeśli typ kafelków jest różny to ukrywamy je
 
-                             }, 1000);
+                             }, 700);
                          }
 
 
@@ -165,7 +164,6 @@ $(function() {
                 localStorage.setItem("score", JSON.stringify({moves: movesCount, time: timeCount}));
                 console.log('saved');
              }
-             // alert("You win!");
          }
 
 
