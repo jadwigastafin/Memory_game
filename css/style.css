@@ -92,6 +92,14 @@ article .gamePage {
     z-index: 2;
 }
 
+.bestScore {
+    font-size: 30px;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+
+}
+
 
 /*komórka na planszy*/
 
@@ -130,7 +138,6 @@ article .gamePage {
 .gameBoard .tile .front {
 
     z-index: 3;
-    background: yellow;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
@@ -144,7 +151,6 @@ article .gamePage {
 }
 
 .gameBoard .tile .reverse {
-
     background-color: rgba(83, 86, 86, 0.5);
     z-index: 2;
     display: block;
