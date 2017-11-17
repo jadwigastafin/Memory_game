@@ -71,25 +71,19 @@
 
 
 $(function () {
-    //Funkcja samowywołująca zabezpiecza skrypt, treśc nie dostępna na zewnatrz
     console.log('DOM');
 
     var tilesCount = 20; //ilość kafelków na planszy
-    // let tiles = []; //tablica z wygenerowanymi numerkami kafelków
-    // let clickedTiles = []; //kliknięte kafelki max 2 szt.
     var canGet = true; //zabezpieczenie przed kliknięciem wiecej niż 2 kafelków
     var movesCount = 0; //liczba ruchów gracza
     var tilesPair = 0; //sparowane kafelki max = tilesCount/2
 
 
     function startGame() {
-        var tiles = [];
-        var clickedTiles = [];
-        // let canGet = true;
-        // // let movesCount = 0;
+        var tiles = []; //tablica z wygenerowanymi numerkami kafelków
+        var clickedTiles = []; //kliknięte kafelki max 2 szt.
 
-
-        var gameBoard = $(".gameBoard"); //czyszczenie planszy
+        var gameBoard = $(".gameBoard"); //przypisanie planszy
 
         //tablica z numerami kafelków
         for (var _i = 0; _i < tilesCount; _i++) {
@@ -125,16 +119,30 @@ $(function () {
         });
 
         function showMoves(moves) {
-            $('.gameMoves').html(moves);
+            $('.gameMoves').html("/ " + moves + " /");
         }
 
         function tileClicked(element) {
+
+            // ODLICZANIE CZASU
+            // let seconds = 0;
+            // let time = setInterval(function(){
+            //     seconds++;
+            //     $(".gameTime").html(seconds);
+            //
+            // }, 100);
+            //
+
+
+            // timer();
 
             element = $(element);
             console.log(canGet);
 
             if (canGet) {
                 //canGet = true
+
+                // time();
 
                 console.log(clickedTiles);
 
@@ -154,7 +162,7 @@ $(function () {
                             //sprawdzamy czy typ obu kafelków jest taki sam
                             setTimeout(function () {
                                 deleteTiles(); //jeśli typ kafelków jest taki sam to usuwamy je
-                            }, 700);
+                            }, 500);
                         } else {
                             setTimeout(function () {
                                 resetTiles(); //jeśli typ kafelków jest różny to ukrywamy je
@@ -166,11 +174,24 @@ $(function () {
                     }
                 }
             }
-        };
+        }
+
+        // ODLICZANIE CZASU
+        // function timer(){
+        //     let counter = 0;
+        //     let id = setInterval(function () {
+        //
+        //         counter++
+        //
+        //         console.log('dziala', counter);
+        //
+        //
+        //     }, 100);
+        // }
+
 
         function deleteTiles() {
             //deleteTiles jeśli typ kafelków jest taki sam
-
 
             clickedTiles[0].parent().fadeOut(function () {
                 //rozjaśnienie do transparent
@@ -181,19 +202,20 @@ $(function () {
                 $(this).remove();
             });
 
-            clickedTiles = [];
-
             tilesPair++; //zwiększenie licznika odgadniętych par
             if (tilesPair >= tilesCount / 2) {
                 gameOver(); //jeśli licznik par osiągnął liczbę kafelków/2 to koniec gry
             }
 
             canGet = true;
-            // clickedTiles=[];
+            clickedTiles = [];
         }
 
         function gameOver() {
-            alert("You win!");
+            // clearInterval(id);
+            $('.gameFinish').html("<h1>You win! <br> Done in '+moves+' moves</h1>");
+
+            // alert("You win!");
         }
 
         function resetTiles() {
@@ -208,7 +230,6 @@ $(function () {
             }
         }
     }
-
     startGame();
 });
 

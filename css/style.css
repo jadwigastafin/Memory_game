@@ -18,74 +18,91 @@
 
 
 body {
-    background: url("../images/bg.png") center no-repeat;
+    background: url("../images/bg2.jpg") center no-repeat;
 }
 
+
 header {
-    color: #ECECEA;
+    color: #cc5200;
     text-align: center;
-    margin: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 header h1{
-    font-size: 60px;
+    font-size: 72px;
     padding-bottom: 10px;
     letter-spacing: 3px;
 }
-header p{
-    letter-spacing: 1px;
+
+article .gamePage {
+    position: relative;
+    margin: 0 auto;
 }
 
 
 
-/*stylowanie liczby ruchów*/
+/*stylowanie liczby ruchów i czasu*/
 
-.gameMovesBox {
+.gameMovesBox,
+.gameTimeBox {
     width: 100%;
     margin: 10px auto;
 }
 
-.gameMovesBox strong {
-    font-size: 26px;
+.gameMovesBox strong,
+.gameTimeBox strong {
+    font-size: 30px;
     font-weight: bold;
-    color: #ECECEA;
+    color: #cc5200;
     text-align: center;
     display: block;
     letter-spacing: 1.5px;
 }
 
-.gameMovesBox .gameMoves {
+.gameMovesBox .gameMoves,
+.gameTimeBox .gameTime {
     height: 30px;
     max-width: 300px;
     font-size: 20px;
     font-weight: bold;
     color: black;
-    background-color: gray;
+    background-color: rgba(83, 86, 86, .5);
     text-align: center;
     margin: 10px auto;
 }
+
 
 /*plansza*/
 
 .gameBoard {
     position: relative;
     overflow: hidden;
-    max-width: 700px;
+    max-width: 690px;
     height: 550px;
     width: 100%;
     margin: 0 auto;
-    border-radius: 10px;
 }
+
+.gameFinish {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 48px;
+    color: #cc5200;
+    z-index: 2;
+}
+
 
 /*komórka na planszy*/
 
 .gameBoard .cell {
     width: 128px;
-    margin: 2px;
+    margin: 5px;
     height: 128px;
     vertical-align: top;
     display: inline-block;   /* układanie planszy w kwadrat */
     position: relative;
+
 }
 
 /*kafelek*/
@@ -95,6 +112,8 @@ header p{
     height: 100%;
     cursor: pointer;
     position: relative;
+
+
 }
 
 /*wspólne dla frontu i reversu*/
@@ -126,7 +145,7 @@ header p{
 
 .gameBoard .tile .reverse {
 
-    background: grey;
+    background-color: rgba(83, 86, 86, 0.5);
     z-index: 2;
     display: block;
     -webkit-transition: 0.2s 0.2s;
@@ -140,7 +159,7 @@ header p{
 }
 
 .gameBoard .tile:hover .reverse {
-    background-color: #ECECEA;
+    background-color: lightgray;
 }
 
 /*klasa show*/
@@ -154,7 +173,6 @@ header p{
     -webkit-transform:scaleX(1);
     -moz-transform:scaleX(1);
     transform:scaleX(1);
-
 
 }
 
