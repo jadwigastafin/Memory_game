@@ -73,7 +73,7 @@
 $(function () {
     console.log('DOM');
 
-    var tilesCount = 20; //ilość kafelków na planszy
+    var tilesCount = 10; //ilość kafelków na planszy
     var canGet = true; //zabezpieczenie przed kliknięciem wiecej niż 2 kafelków
     var movesCount = 0; //liczba ruchów gracza
     var tilesPair = 0; //sparowane kafelki max = tilesCount/2
@@ -170,12 +170,10 @@ $(function () {
                             //sprawdzamy czy typ obu kafelków jest taki sam
                             setTimeout(function () {
                                 deleteTiles(); //jeśli typ kafelków jest taki sam to usuwamy je
-                                console.log("DziałaKOT");
                             }, 600);
                         } else {
                             setTimeout(function () {
                                 resetTiles(); //jeśli typ kafelków jest różny to ukrywamy je
-                                console.log("DziałaPIES");
                             }, 1000);
                         }
 
